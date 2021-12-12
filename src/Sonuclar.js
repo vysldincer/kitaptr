@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOM from "react-dom";
+import React from 'react'; 
 import Highlighter from 'react-highlight-words';
 
 const Sonuclar = (props) => {
@@ -14,7 +13,7 @@ const Sonuclar = (props) => {
             {gelenDizi.length > 0 && gelenDizi.map((item, index) => {
 
                 return (
-                    <div key={index} className={" " + (item.sure_yer == 'Mekki' ? 'bg-green-500' : 'bg-indigo-500') + "  w-100 rounded p-2 text-white divide-y divide-white-600 text-md text-center mb-3 "} >
+                    <div key={index} className={" " + (item.sure_yer === 'Mekki' ? 'bg-green-500' : 'bg-indigo-500') + "  w-100 rounded p-2 text-white divide-y divide-white-600 text-md text-center mb-3 "} >
                         <div className="flex divide-x  space-x-4 text-center divide-white-600 ">
                             <div className="w-1/2">{item.sure_adi}</div>
                             <div className="w-1/2">{item.sure_yer}</div>

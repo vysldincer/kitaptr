@@ -26,13 +26,18 @@ const App = () => {
     setValue(event.target.value);
   }
 
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
 
-    axios.post('http://localhost/test/api.php', {
-      kelime: value,
-    })
+
+    axios.post(
+      'https://vtekdincer.com/kitap/',
+      { kelime: value },
+      { headers: { "Content-Type": "application/json" } }
+    )
       .then(function (response) {
         if (response.data.status === 'success') {
           setVarmi(true);
@@ -42,9 +47,10 @@ const App = () => {
           setMekkiSayi(response.data.mekkiSayi);
           setSonuclar(response.data.message);
           setHataMessage('');
+  
         } else {
           setVarmi(false);
-          setHataMessage(response.data.message);
+          setHataMessage(response.data.message); 
         }
       })
       .catch(function (error) {
